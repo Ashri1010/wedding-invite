@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>승현 ♥ 은정 결혼합니다</title>
+<title>승현 · 은정 결혼합니다</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -12,119 +12,47 @@
 <meta property="og:image" content="https://ashri1010.github.io/wedding-invite/images/숙소.jpg">
 
 <style>
-body {
-  margin:0;
-  font-family:'Noto Sans KR', sans-serif;
-  line-height:1.8;
-  color:#111;
-}
+body{margin:0;font-family:'Noto Sans KR',sans-serif;line-height:1.8;color:#111}
 
 /* 커버 */
-.cover {
-  position:relative;
-  height:100vh;
+.cover{
+  position:relative;height:100vh;
   background:url('./images/숙소.jpg') center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  color:#fff;text-align:center
 }
-
-.cover::before {
-  content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.35);
-}
-
-.cover * {
-  position:relative;
-}
-
-.cover h1 {
-  font-family:'Nanum Myeongjo', serif;
-  font-size:52px;
-  letter-spacing:3px;
-  margin-bottom:10px;
-}
-
-.cover p {
-  font-size:14px;
-  opacity:0.9;
-}
+.cover::before{content:'';position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.35)}
+.cover *{position:relative}
+.cover h1{font-family:'Nanum Myeongjo',serif;font-size:52px;letter-spacing:3px}
+.cover p{font-size:14px}
 
 /* 공통 */
-.section {
-  padding:100px 20px;
-  text-align:center;
-}
-
-h2 {
-  font-family:'Nanum Myeongjo', serif;
-  font-weight:400;
-  margin-bottom:30px;
-}
+.section{padding:100px 20px;text-align:center}
+h2{font-family:'Nanum Myeongjo',serif;font-weight:400;margin-bottom:25px}
 
 /* 버튼 */
-.btn {
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 18px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  border-radius:30px;
-  font-size:14px;
+.btn{
+  display:inline-block;margin-top:12px;padding:10px 18px;
+  background:#111;color:#fff;border-radius:25px;text-decoration:none;font-size:14px
 }
 
 /* 갤러리 */
-.grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.grid img {
-  width:100%;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.grid img:first-child {
-  grid-column:span 2;
-}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid img{width:100%;border-radius:12px;cursor:pointer}
+.grid img:first-child{grid-column:span 2}
 
 /* 모달 */
-.modal {
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:999}
+.modal img{max-width:90%}
 
-.modal img {
-  max-width:90%;
-}
+/* 계좌 접기 */
+.account-box{margin-top:20px;border-top:1px solid #eee;padding-top:10px}
+.account-header{cursor:pointer;font-weight:500;margin:10px 0}
+.account-content{display:none}
 
 /* 애니메이션 */
-.fade {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.fade.show {
-  opacity:1;
-  transform:translateY(0);
-}
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 
@@ -137,7 +65,7 @@ h2 {
   <p>서울</p>
 </div>
 
-<!-- 인사말 -->
+<!-- 인사 -->
 <div class="section fade">
   <h2>초대합니다</h2>
   <p>
@@ -148,20 +76,18 @@ h2 {
   </p>
 </div>
 
-<!-- 예식 안내 -->
+<!-- 안내 -->
 <div class="section fade">
   <h2>예식 안내</h2>
   <p>2027년 10월 10일</p>
   <p>서울</p>
 </div>
 
-<!-- 오시는 길 -->
+<!-- 지도 -->
 <div class="section fade">
   <h2>오시는 길</h2>
   <p>빌라드지디</p>
-  <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">
-    지도 보기
-  </a>
+  <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">지도 보기</a>
 </div>
 
 <!-- 갤러리 -->
@@ -187,15 +113,21 @@ h2 {
 <div class="section fade">
   <h2>마음 전하실 곳</h2>
 
-  <p>신부</p>
-  <p>기업은행 45007221201018</p>
-  <button class="btn" onclick="copyText('기업은행 45007221201018')">계좌 복사</button>
+  <div class="account-box">
+    <div class="account-header" onclick="toggleAccount(0)">신부 계좌 ▼</div>
+    <div class="account-content">
+      기업은행 45007221201018<br>
+      <button class="btn" onclick="copyText('기업은행 45007221201018')">복사</button>
+    </div>
+  </div>
 
-  <br><br>
-
-  <p>신랑</p>
-  <p>케이뱅크 100140170055</p>
-  <button class="btn" onclick="copyText('케이뱅크 100140170055')">계좌 복사</button>
+  <div class="account-box">
+    <div class="account-header" onclick="toggleAccount(1)">신랑 계좌 ▼</div>
+    <div class="account-content">
+      케이뱅크 100140170055<br>
+      <button class="btn" onclick="copyText('케이뱅크 100140170055')">복사</button>
+    </div>
+  </div>
 </div>
 
 <!-- 연락 -->
@@ -211,28 +143,40 @@ h2 {
 </div>
 
 <script>
-const fades = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-  fades.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 50){
+/* 애니메이션 */
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-50){
       el.classList.add('show');
     }
   });
 });
 
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
+/* 갤러리 확대 + 슬라이드 */
+const modal=document.getElementById("modal");
+const modalImg=document.getElementById("modal-img");
+const imgs=document.querySelectorAll(".grid img");
+let current=0;
 
-document.querySelectorAll(".grid img").forEach(img => {
-  img.onclick = () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-  };
+imgs.forEach((img,i)=>{
+  img.onclick=()=>{
+    modal.style.display="flex";
+    modalImg.src=img.src;
+    current=i;
+  }
 });
 
-modal.onclick = () => modal.style.display = "none";
+modal.onclick=()=>modal.style.display="none";
 
-function copyText(text) {
+/* 계좌 토글 */
+function toggleAccount(i){
+  const list=document.querySelectorAll('.account-content');
+  list[i].style.display = list[i].style.display==="block" ? "none" : "block";
+}
+
+/* 복사 */
+function copyText(text){
   navigator.clipboard.writeText(text);
   alert("복사되었습니다");
 }
