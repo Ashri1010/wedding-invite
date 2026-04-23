@@ -7,6 +7,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
+<meta property="og:title" content="승현 · 은정 결혼합니다">
+<meta property="og:description" content="2027년 10월 10일 | 서울">
+<meta property="og:image" content="https://ashri1010.github.io/wedding-invite/images/숙소.jpg">
+
 <style>
 body {
   margin:0;
@@ -15,23 +19,20 @@ body {
   line-height:1.8;
 }
 
-/* ===== 히어로 (핵심) ===== */
+/* 히어로 */
 .hero {
   position:relative;
   height:100vh;
   overflow:hidden;
 }
-
 .hero-bg {
   position:fixed;
-  top:0; left:0;
   width:100%;
   height:100%;
-  background:url('./images/숙소.jpg') center/cover no-repeat;
-  z-index:-1;
+  background:url('./images/숙소.jpg') center/cover;
   filter:brightness(0.6);
+  z-index:-1;
 }
-
 .hero-text {
   height:100vh;
   display:flex;
@@ -39,104 +40,74 @@ body {
   justify-content:center;
   align-items:center;
   color:#fff;
-  text-align:center;
 }
-
 .hero-text h1 {
   font-family:'Nanum Myeongjo', serif;
-  font-size:56px;
-  letter-spacing:3px;
+  font-size:52px;
 }
 
-.hero-text p {
-  font-size:15px;
-  margin-top:10px;
-}
-
-/* ===== 섹션 ===== */
+/* 섹션 */
 .section {
   background:#fff;
-  padding:120px 20px;
+  padding:100px 20px;
   text-align:center;
 }
-
-.section h2 {
+h2 {
   font-family:'Nanum Myeongjo', serif;
-  font-size:22px;
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
-.section p {
-  max-width:500px;
-  margin:0 auto;
-}
-
-/* ===== 갤러리 ===== */
-.grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.grid img {
-  width:100%;
-  border-radius:10px;
-}
-
-.grid img:first-child {
-  grid-column:span 2;
-}
-
-/* ===== 버튼 ===== */
+/* 버튼 */
 .btn {
   display:inline-block;
-  margin-top:20px;
   padding:12px 20px;
-  border-radius:30px;
   background:#111;
   color:#fff;
+  border-radius:30px;
   text-decoration:none;
-}
-
-/* ===== 계좌 ===== */
-.account {
   margin-top:20px;
 }
 
-.account-item {
-  margin-bottom:20px;
+/* 슬라이드 */
+.slider {
+  overflow:hidden;
+}
+.slides {
+  display:flex;
+  transition:transform 0.5s ease;
+}
+.slides img {
+  width:100%;
+  flex-shrink:0;
+  border-radius:12px;
 }
 
+/* 계좌 */
 .copy-btn {
   margin-top:10px;
   padding:8px 15px;
-  border:none;
   background:#000;
   color:#fff;
+  border:none;
   border-radius:20px;
 }
 
-/* ===== 모달 ===== */
-.modal {
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
+/* 애니메이션 */
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
 }
-
-.modal img {
-  max-width:90%;
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== 히어로 ===== -->
+<!-- 커버 -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-text">
@@ -146,8 +117,8 @@ body {
   </div>
 </div>
 
-<!-- ===== 인사 ===== -->
-<div class="section">
+<!-- 인사 -->
+<div class="section fade">
   <h2>초대합니다</h2>
   <p>
     서로 다른 길을 걸어온 저희가<br>
@@ -157,15 +128,15 @@ body {
   </p>
 </div>
 
-<!-- ===== 예식 ===== -->
-<div class="section">
+<!-- 안내 -->
+<div class="section fade">
   <h2>예식 안내</h2>
   <p>2027년 10월 10일</p>
   <p>서울</p>
 </div>
 
-<!-- ===== 지도 ===== -->
-<div class="section">
+<!-- 지도 -->
+<div class="section fade">
   <h2>오시는 길</h2>
   <p>빌라드지디</p>
   <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">
@@ -173,73 +144,76 @@ body {
   </a>
 </div>
 
-<!-- ===== 갤러리 ===== -->
-<div class="section">
+<!-- 갤러리 슬라이드 -->
+<div class="section fade">
   <h2>사진</h2>
-  <div class="grid">
-    <img src="./images/100일.jpg">
-    <img src="./images/갈대.jpg">
-    <img src="./images/눈.jpg">
-    <img src="./images/따봉.jpg">
-    <img src="./images/반지.jpg">
-    <img src="./images/상하이.jpg">
-    <img src="./images/소녀.jpg">
-    <img src="./images/숙소.jpg">
-    <img src="./images/약속.jpg">
-    <img src="./images/첫만남.jpg">
-    <img src="./images/패트.jpg">
-    <img src="./images/화보.jpg">
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="./images/100일.jpg">
+      <img src="./images/갈대.jpg">
+      <img src="./images/눈.jpg">
+      <img src="./images/따봉.jpg">
+      <img src="./images/반지.jpg">
+      <img src="./images/상하이.jpg">
+      <img src="./images/소녀.jpg">
+      <img src="./images/숙소.jpg">
+      <img src="./images/약속.jpg">
+      <img src="./images/첫만남.jpg">
+      <img src="./images/패트.jpg">
+      <img src="./images/화보.jpg">
+    </div>
   </div>
 </div>
 
-<!-- ===== 계좌 ===== -->
-<div class="section">
+<!-- 계좌 -->
+<div class="section fade">
   <h2>마음 전하실 곳</h2>
 
-  <div class="account-item">
-    <p>신부</p>
-    <p>기업은행 45007221201018</p>
-    <button class="copy-btn" onclick="copy('기업은행 45007221201018')">복사</button>
-  </div>
+  <p>신부</p>
+  <p>기업은행 45007221201018</p>
+  <button class="copy-btn" onclick="copy('기업은행 45007221201018')">복사</button>
 
-  <div class="account-item">
-    <p>신랑</p>
-    <p>케이뱅크 100140170055</p>
-    <button class="copy-btn" onclick="copy('케이뱅크 100140170055')">복사</button>
-  </div>
+  <br><br>
+
+  <p>신랑</p>
+  <p>케이뱅크 100140170055</p>
+  <button class="copy-btn" onclick="copy('케이뱅크 100140170055')">복사</button>
 </div>
 
-<!-- ===== 연락 ===== -->
-<div class="section">
+<!-- 연락 -->
+<div class="section fade">
   <h2>연락하기</h2>
   <a class="btn" href="tel:01012345678">신랑</a>
   <a class="btn" href="tel:01087654321">신부</a>
 </div>
 
-<!-- 모달 -->
-<div class="modal" id="modal">
-  <img id="modal-img">
-</div>
-
 <script>
+/* 애니메이션 */
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-50){
+      el.classList.add('show');
+    }
+  });
+});
+
+/* 슬라이드 */
+const slides=document.getElementById("slides");
+const total=slides.children.length;
+let index=0;
+
+function moveSlide(){
+  index=(index+1)%total;
+  slides.style.transform=`translateX(-${index*100}%)`;
+}
+setInterval(moveSlide,2500);
+
 /* 복사 */
 function copy(text){
   navigator.clipboard.writeText(text);
   alert("복사되었습니다");
 }
-
-/* 갤러리 확대 */
-const modal=document.getElementById("modal");
-const modalImg=document.getElementById("modal-img");
-
-document.querySelectorAll(".grid img").forEach(img=>{
-  img.onclick=()=>{
-    modal.style.display="flex";
-    modalImg.src=img.src;
-  }
-});
-
-modal.onclick=()=>modal.style.display="none";
 </script>
 
 </body>
