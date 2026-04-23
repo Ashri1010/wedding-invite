@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>승현 ❤ 은정 결혼합니다</title>
 
-<!-- 폰트 -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- 한글 폰트 -->
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- OG -->
+<meta property="og:title" content="승현 ❤ 은정 결혼합니다">
+<meta property="og:description" content="2027년 10월 10일 | 서울">
+<meta property="og:image" content="https://ashri1010.github.io/wedding-invite/images/숙소.jpg">
 
 <style>
 body {
@@ -14,7 +19,7 @@ body {
   font-family:'Noto Sans KR', sans-serif;
   background:#fff;
   color:#111;
-  line-height:1.6;
+  line-height:1.7;
 }
 
 /* 커버 */
@@ -30,13 +35,14 @@ body {
 }
 
 .cover h1 {
-  font-family:'Great Vibes', cursive;
-  font-size:52px;
+  font-family:'Nanum Myeongjo', serif;
+  font-size:42px;
   margin-bottom:10px;
+  letter-spacing:2px;
 }
 
 .cover p {
-  font-size:16px;
+  font-size:15px;
   letter-spacing:1px;
 }
 
@@ -47,6 +53,7 @@ body {
 }
 
 h2 {
+  font-family:'Nanum Myeongjo', serif;
   font-weight:400;
   margin-bottom:20px;
   letter-spacing:1px;
@@ -80,7 +87,7 @@ h2 {
 }
 
 .grid img:hover {
-  opacity:0.8;
+  opacity:0.85;
 }
 
 /* 모달 */
@@ -120,14 +127,14 @@ h2 {
 
 <!-- 커버 -->
 <div class="cover">
-  <h1>Seunghyun & Eunjung</h1>
-  <p>2027.10.10</p>
+  <h1>승현 · 은정</h1>
+  <p>2027년 10월 10일</p>
   <p>서울</p>
 </div>
 
 <!-- 인사말 -->
 <div class="section fade">
-  <h2>INVITATION</h2>
+  <h2>초대합니다</h2>
   <p>
     서로 다른 길을 걸어온 저희가<br>
     이제 같은 길을 함께 걸어가려 합니다.<br><br>
@@ -138,7 +145,7 @@ h2 {
 
 <!-- 안내 -->
 <div class="section fade">
-  <h2>WEDDING</h2>
+  <h2>예식 안내</h2>
   <p>2027년 10월 10일</p>
   <p>서울</p>
   <a class="btn" href="https://map.naver.com" target="_blank">지도 보기</a>
@@ -146,7 +153,7 @@ h2 {
 
 <!-- 갤러리 -->
 <div class="section fade">
-  <h2>GALLERY</h2>
+  <h2>갤러리</h2>
   <div class="grid">
     <img src="./images/100일.jpg">
     <img src="./images/갈대.jpg">
@@ -165,7 +172,7 @@ h2 {
 
 <!-- 연락 -->
 <div class="section fade">
-  <h2>CONTACT</h2>
+  <h2>연락하기</h2>
   <a class="btn" href="tel:01012345678">신랑에게 연락</a>
   <a class="btn" href="tel:01087654321">신부에게 연락</a>
 </div>
@@ -176,7 +183,6 @@ h2 {
 </div>
 
 <script>
-/* 스크롤 애니메이션 */
 const fades = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
   fades.forEach(el => {
@@ -187,7 +193,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-/* 이미지 확대 */
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 
