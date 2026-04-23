@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>승현 · 은정 결혼합니다</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
 <meta property="og:title" content="승현 · 은정 결혼합니다">
 <meta property="og:description" content="2027년 10월 10일 | 서울">
@@ -15,15 +15,14 @@
 body {
   margin:0;
   font-family:'Noto Sans KR', sans-serif;
-  color:#111;
   line-height:1.8;
+  color:#111;
 }
 
 /* 커버 */
 .hero {
   position:relative;
   height:100vh;
-  overflow:hidden;
 }
 .hero-bg {
   position:fixed;
@@ -42,7 +41,7 @@ body {
   color:#fff;
 }
 .hero-text h1 {
-  font-family:'Nanum Myeongjo', serif;
+  font-family:'Noto Serif KR', serif;
   font-size:52px;
 }
 
@@ -53,7 +52,7 @@ body {
   text-align:center;
 }
 h2 {
-  font-family:'Nanum Myeongjo', serif;
+  font-family:'Noto Serif KR', serif;
   margin-bottom:30px;
 }
 
@@ -65,7 +64,7 @@ h2 {
   color:#fff;
   border-radius:30px;
   text-decoration:none;
-  margin-top:20px;
+  margin-top:15px;
 }
 
 /* 슬라이드 */
@@ -77,23 +76,17 @@ h2 {
 }
 .slides {
   display:flex;
-  transition:transform 0.5s ease;
 }
 .slides img {
   width:100%;
+  min-width:100%;
   height:65vh;
   object-fit:cover;
-  object-position:center;
+  flex-shrink:0;
   border-radius:12px;
 }
 
-/* 세로사진 대응 */
-.slides img.portrait {
-  object-fit:contain;
-  background:#000;
-}
-
-/* 점 인디케이터 */
+/* dots */
 .dots {
   margin-top:15px;
 }
@@ -104,7 +97,6 @@ h2 {
   margin:4px;
   background:#ccc;
   border-radius:50%;
-  transition:0.3s;
 }
 .dots .active {
   background:#111;
@@ -113,24 +105,27 @@ h2 {
 }
 
 /* 계좌 */
-.copy-btn {
+.account-box {
+  margin:15px 0;
+}
+.account-header {
+  cursor:pointer;
+  font-weight:500;
+  margin:10px 0;
+}
+.account-content {
+  display:none;
   margin-top:10px;
-  padding:8px 15px;
+}
+
+/* 복사 버튼 */
+.copy-btn {
+  margin-top:8px;
+  padding:6px 12px;
   background:#000;
   color:#fff;
   border:none;
-  border-radius:20px;
-}
-
-/* 애니메이션 */
-.fade {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.fade.show {
-  opacity:1;
-  transform:translateY(0);
+  border-radius:15px;
 }
 </style>
 </head>
@@ -148,7 +143,7 @@ h2 {
 </div>
 
 <!-- 인사 -->
-<div class="section fade">
+<div class="section">
   <h2>초대합니다</h2>
   <p>
     서로 다른 길을 걸어온 저희가<br>
@@ -158,26 +153,16 @@ h2 {
   </p>
 </div>
 
-<!-- 안내 -->
-<div class="section fade">
-  <h2>예식 안내</h2>
-  <p>2027년 10월 10일</p>
-  <p>서울</p>
-</div>
-
 <!-- 지도 -->
-<div class="section fade">
+<div class="section">
   <h2>오시는 길</h2>
   <p>빌라드지디</p>
-  <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">
-    지도 보기
-  </a>
+  <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">지도 보기</a>
 </div>
 
-<!-- 갤러리 -->
-<div class="section fade">
+<!-- 슬라이드 -->
+<div class="section">
   <h2>사진</h2>
-
   <div class="slider">
     <div class="slides" id="slides">
       <img src="./images/100일.jpg">
@@ -194,51 +179,51 @@ h2 {
       <img src="./images/화보.jpg">
     </div>
   </div>
-
   <div class="dots" id="dots"></div>
 </div>
 
 <!-- 계좌 -->
-<div class="section fade">
+<div class="section">
   <h2>마음 전하실 곳</h2>
 
-  <p>신부</p>
-  <p>기업은행 45007221201018</p>
-  <button class="copy-btn" onclick="copy('기업은행 45007221201018')">복사</button>
+  <!-- 신부 -->
+  <div class="account-box">
+    <div class="account-header" onclick="toggle(0)">신부 측 ▼</div>
+    <div class="account-content">
+      신부: 기업은행 45007221201018<br>
+      <button class="copy-btn" onclick="copy('기업은행 45007221201018')">복사</button><br><br>
+      부: (계좌 입력)<br>
+      모: (계좌 입력)
+    </div>
+  </div>
 
-  <br><br>
+  <!-- 신랑 -->
+  <div class="account-box">
+    <div class="account-header" onclick="toggle(1)">신랑 측 ▼</div>
+    <div class="account-content">
+      신랑: 케이뱅크 100140170055<br>
+      <button class="copy-btn" onclick="copy('케이뱅크 100140170055')">복사</button><br><br>
+      부: (계좌 입력)<br>
+      모: (계좌 입력)
+    </div>
+  </div>
 
-  <p>신랑</p>
-  <p>케이뱅크 100140170055</p>
-  <button class="copy-btn" onclick="copy('케이뱅크 100140170055')">복사</button>
 </div>
 
 <!-- 연락 -->
-<div class="section fade">
+<div class="section">
   <h2>연락하기</h2>
   <a class="btn" href="tel:01058735162">신랑 010-5873-5162</a>
   <a class="btn" href="tel:01053575034">신부 010-5357-5034</a>
 </div>
 
 <script>
-/* 애니메이션 */
-const fades = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-  fades.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 50){
-      el.classList.add('show');
-    }
-  });
-});
-
-/* 슬라이드 + dots */
+/* 슬라이드 */
 const slides = document.getElementById("slides");
 const total = slides.children.length;
 const dotsContainer = document.getElementById("dots");
-
 let index = 0;
 
-/* dots 생성 */
 for(let i=0;i<total;i++){
   const dot = document.createElement("span");
   if(i===0) dot.classList.add("active");
@@ -253,13 +238,28 @@ function updateDots(){
   dots[index].classList.add("active");
 }
 
-function moveSlide(){
-  index = (index + 1) % total;
-  slides.style.transform = `translateX(-${index * 100}%)`;
-  updateDots();
-}
+/* 터치 */
+let startX = 0;
 
-setInterval(moveSlide, 2500);
+slides.addEventListener("touchstart", e=>{
+  startX = e.touches[0].clientX;
+});
+
+slides.addEventListener("touchend", e=>{
+  let endX = e.changedTouches[0].clientX;
+
+  if(startX - endX > 50) index = (index+1)%total;
+  if(endX - startX > 50) index = (index-1+total)%total;
+
+  slides.style.transform = `translateX(-${index*100}%)`;
+  updateDots();
+});
+
+/* 계좌 토글 */
+function toggle(i){
+  const list = document.querySelectorAll('.account-content');
+  list[i].style.display = list[i].style.display === "block" ? "none" : "block";
+}
 
 /* 복사 */
 function copy(text){
