@@ -5,49 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>승현 · 은정 결혼합니다</title>
 
-<!-- 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- OG -->
 <meta property="og:title" content="승현 · 은정 결혼합니다">
 <meta property="og:description" content="2027년 10월 10일 | 서울">
 <meta property="og:image" content="https://ashri1010.github.io/wedding-invite/images/숙소.jpg">
-<meta property="og:url" content="https://ashri1010.github.io/wedding-invite/">
 
 <style>
 body {
   margin:0;
   font-family:'Noto Sans KR', sans-serif;
-  line-height:1.7;
+  line-height:1.8;
   color:#111;
 }
 
 /* 커버 */
 .cover {
+  position:relative;
   height:100vh;
   background:url('./images/숙소.jpg') center/cover no-repeat;
-  color:white;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-shadow:0 2px 15px rgba(0,0,0,0.6);
+  color:white;
+  text-align:center;
+}
+
+.cover::before {
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.35);
+}
+
+.cover * {
+  position:relative;
 }
 
 .cover h1 {
   font-family:'Nanum Myeongjo', serif;
-  font-size:42px;
-  letter-spacing:2px;
+  font-size:52px;
+  letter-spacing:3px;
+  margin-bottom:10px;
 }
 
+.cover p {
+  font-size:14px;
+  opacity:0.9;
+}
+
+/* 공통 */
 .section {
-  padding:70px 20px;
+  padding:100px 20px;
   text-align:center;
 }
 
 h2 {
   font-family:'Nanum Myeongjo', serif;
   font-weight:400;
+  margin-bottom:30px;
 }
 
 /* 버튼 */
@@ -58,7 +76,7 @@ h2 {
   background:#111;
   color:#fff;
   text-decoration:none;
-  border-radius:25px;
+  border-radius:30px;
   font-size:14px;
 }
 
@@ -75,6 +93,10 @@ h2 {
   cursor:pointer;
 }
 
+.grid img:first-child {
+  grid-column:span 2;
+}
+
 /* 모달 */
 .modal {
   display:none;
@@ -85,6 +107,7 @@ h2 {
   background:rgba(0,0,0,0.9);
   justify-content:center;
   align-items:center;
+  z-index:999;
 }
 
 .modal img {
@@ -94,7 +117,7 @@ h2 {
 /* 애니메이션 */
 .fade {
   opacity:0;
-  transform:translateY(30px);
+  transform:translateY(40px);
   transition:1s;
 }
 
@@ -132,18 +155,18 @@ h2 {
   <p>서울</p>
 </div>
 
-<!-- 지도 -->
+<!-- 오시는 길 -->
 <div class="section fade">
   <h2>오시는 길</h2>
   <p>빌라드지디</p>
   <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">
-    네이버 지도 보기
+    지도 보기
   </a>
 </div>
 
 <!-- 갤러리 -->
 <div class="section fade">
-  <h2>갤러리</h2>
+  <h2>사진</h2>
   <div class="grid">
     <img src="./images/100일.jpg">
     <img src="./images/갈대.jpg">
@@ -188,7 +211,6 @@ h2 {
 </div>
 
 <script>
-/* 애니메이션 */
 const fades = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
   fades.forEach(el => {
@@ -198,7 +220,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-/* 이미지 확대 */
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 
@@ -211,7 +232,6 @@ document.querySelectorAll(".grid img").forEach(img => {
 
 modal.onclick = () => modal.style.display = "none";
 
-/* 복사 */
 function copyText(text) {
   navigator.clipboard.writeText(text);
   alert("복사되었습니다");
