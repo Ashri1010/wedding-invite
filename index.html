@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>승현 ❤ 은정 결혼합니다</title>
+<title>승현 · 은정 결혼합니다</title>
 
-<!-- 한글 폰트 -->
+<!-- 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- OG -->
-<meta property="og:title" content="승현 ❤ 은정 결혼합니다">
+<meta property="og:title" content="승현 · 은정 결혼합니다">
 <meta property="og:description" content="2027년 10월 10일 | 서울">
 <meta property="og:image" content="https://ashri1010.github.io/wedding-invite/images/숙소.jpg">
+<meta property="og:url" content="https://ashri1010.github.io/wedding-invite/">
 
 <style>
 body {
   margin:0;
   font-family:'Noto Sans KR', sans-serif;
-  background:#fff;
-  color:#111;
   line-height:1.7;
+  color:#111;
 }
 
 /* 커버 */
@@ -37,16 +37,9 @@ body {
 .cover h1 {
   font-family:'Nanum Myeongjo', serif;
   font-size:42px;
-  margin-bottom:10px;
   letter-spacing:2px;
 }
 
-.cover p {
-  font-size:15px;
-  letter-spacing:1px;
-}
-
-/* 공통 */
 .section {
   padding:70px 20px;
   text-align:center;
@@ -55,19 +48,17 @@ body {
 h2 {
   font-family:'Nanum Myeongjo', serif;
   font-weight:400;
-  margin-bottom:20px;
-  letter-spacing:1px;
 }
 
 /* 버튼 */
 .btn {
   display:inline-block;
-  margin-top:20px;
-  padding:12px 22px;
+  margin-top:15px;
+  padding:10px 18px;
   background:#111;
   color:#fff;
   text-decoration:none;
-  border-radius:30px;
+  border-radius:25px;
   font-size:14px;
 }
 
@@ -76,18 +67,12 @@ h2 {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:8px;
-  padding:10px;
 }
 
 .grid img {
   width:100%;
   border-radius:12px;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.grid img:hover {
-  opacity:0.85;
 }
 
 /* 모달 */
@@ -100,20 +85,17 @@ h2 {
   background:rgba(0,0,0,0.9);
   justify-content:center;
   align-items:center;
-  z-index:999;
 }
 
 .modal img {
   max-width:90%;
-  max-height:90%;
-  border-radius:10px;
 }
 
 /* 애니메이션 */
 .fade {
   opacity:0;
-  transform:translateY(40px);
-  transition:all 1s ease;
+  transform:translateY(30px);
+  transition:1s;
 }
 
 .fade.show {
@@ -143,12 +125,20 @@ h2 {
   </p>
 </div>
 
-<!-- 안내 -->
+<!-- 예식 안내 -->
 <div class="section fade">
   <h2>예식 안내</h2>
   <p>2027년 10월 10일</p>
   <p>서울</p>
-  <a class="btn" href="https://map.naver.com" target="_blank">지도 보기</a>
+</div>
+
+<!-- 지도 -->
+<div class="section fade">
+  <h2>오시는 길</h2>
+  <p>빌라드지디</p>
+  <a class="btn" href="https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94" target="_blank">
+    네이버 지도 보기
+  </a>
 </div>
 
 <!-- 갤러리 -->
@@ -170,11 +160,26 @@ h2 {
   </div>
 </div>
 
+<!-- 계좌 -->
+<div class="section fade">
+  <h2>마음 전하실 곳</h2>
+
+  <p>신부</p>
+  <p>기업은행 45007221201018</p>
+  <button class="btn" onclick="copyText('기업은행 45007221201018')">계좌 복사</button>
+
+  <br><br>
+
+  <p>신랑</p>
+  <p>케이뱅크 100140170055</p>
+  <button class="btn" onclick="copyText('케이뱅크 100140170055')">계좌 복사</button>
+</div>
+
 <!-- 연락 -->
 <div class="section fade">
   <h2>연락하기</h2>
-  <a class="btn" href="tel:01012345678">신랑에게 연락</a>
-  <a class="btn" href="tel:01087654321">신부에게 연락</a>
+  <a class="btn" href="tel:01012345678">신랑</a>
+  <a class="btn" href="tel:01087654321">신부</a>
 </div>
 
 <!-- 모달 -->
@@ -183,29 +188,34 @@ h2 {
 </div>
 
 <script>
+/* 애니메이션 */
 const fades = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
   fades.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 50){
+    if(el.getBoundingClientRect().top < window.innerHeight - 50){
       el.classList.add('show');
     }
   });
 });
 
+/* 이미지 확대 */
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 
 document.querySelectorAll(".grid img").forEach(img => {
-  img.addEventListener("click", () => {
+  img.onclick = () => {
     modal.style.display = "flex";
     modalImg.src = img.src;
-  });
+  };
 });
 
-modal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+modal.onclick = () => modal.style.display = "none";
+
+/* 복사 */
+function copyText(text) {
+  navigator.clipboard.writeText(text);
+  alert("복사되었습니다");
+}
 </script>
 
 </body>
